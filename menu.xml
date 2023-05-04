@@ -1,0 +1,66 @@
+<menu>
+  <dish>
+    <name>Chicken Pesto Pasta</name>
+    <description>Delicious pasta with tender chicken and pesto sauce.</description>
+    <price>12.99</price>
+    <image>1.jpg</image>
+  </dish>
+  <dish>
+    <name>Margherita Pizza</name>
+    <description>Classic pizza topped with fresh mozzarella and basil.</description>
+    <price>10.99</price>
+    <image>2.jpg</image>
+  </dish>
+   <dish>
+    <name>Beef Burrito</name>
+    <description>Savory burrito filled with seasoned beef and vegetables.</description>
+    <price>8.99</price>
+    <image>3.jpg</image>
+  </dish>
+    <dish>
+    <name>Greek Salad</name>
+    <description>Refreshing salad with crisp lettuce, feta cheese, and olives.</description>
+    <price>6.99</price>
+    <image>4.jpeg</image>
+  </dish>
+       
+         <dish>
+    <name>Tiramisu</name>
+    <description>Decadent Italian dessert made with layers of coffee-soaked ladyfingers and mascarpone cream.</description>
+    <price>4.99</price>
+    <image>5.jpg</image>
+  </dish>
+      
+           <dish>
+    <name>Steak with Roasted Vegetables</name>
+    <description>Juicy steak served with a side of roasted vegetables.</description>
+    <price>16.99</price>
+    <image>6.jpg</image>
+  </dish>  
+        <dish>
+    <name>Spaghetti Carbonara</name>
+    <description>Classic Italian pasta dish with bacon, eggs, and Parmesan cheese.</description>
+    <price>11.99</price>
+    <image>7.jpg</image>
+  </dish>
+        <dish>
+    <name>Fish Tacos</name>
+    <description>Delicious tacos filled with crispy fish, cabbage, and a tangy sauce.</description>
+    <price>9.99</price>
+    <image>8.jpg</image>
+  </dish>
+
+    <dish>
+    <name>Caesar Salad</name>
+    <description>Classic salad with romaine lettuce, Parmesan cheese, and Caesar dressing.</description>
+    <price>7.99</price>
+    <image>9.jpg</image>
+  </dish>
+      <dish>
+    <name>Cheesecake</name>
+    <description>Creamy and indulgent cheesecake with a graham cracker crust.</description>
+    <price>9.99</price>
+    <image>10.jpg</image>
+  </dish>
+
+

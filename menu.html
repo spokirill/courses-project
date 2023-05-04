@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pestoran Menu</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="styl.css">
+</head>
+<body>
+    <div class='header'>
+        <div class='container'>
+            <div class='header-line'>
+                <div class='header-logo'>
+                    <img src="logo.png" alt="">
+                </div>
+    
+                <div class='nav'>
+                    <a class='nav-item' href="index.html">ГЛАВНАЯ</a>
+                    <a class='nav-item' href="menu.html">МЕНЮ</a>
+                    <a class='nav-item' href="about as.html">О НАС</a>
+                    
+                </div>
+    
+                <div class='btn'>
+                    <a class='button' href='reserve.html'>ЗАКАЗ СТОЛИКА</a>
+                </div>
+    
+                <div class='burger-menu'>
+    
+                    <button id='burger'>
+                        <img src="burger-img.png" alt="">
+                    </button>
+    
+                    <div id='menu' class='burger-slide disp'>
+                        <a class='nav-item block' href="index.html">ГЛАВНАЯ</a>
+                        <a class='nav-item block' href="menu.html">МЕНЮ</a>
+                        <a class='nav-item block' href="about as.html">О НАС</a>
+                        <a class='nav-item block' href="reserve.html">БРОНЬ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                
+                
+<section class="menu-container">
+    <h2>Меню ресторана</h2>
+    <ul class="menu">
+        <li>
+            <div class="dish-image">
+                <img src="1.jpg" alt="Chicken Pesto Pasta">
+            </div>
+            <div class="dish-details">
+                <h3 class="dish-name">Chicken Pesto Pasta</h3>
+                <p class="description">Delicious pasta with tender chicken and pesto sauce.</p>
+                <span class="price">12.99 p.</span>
+            </div>
+        </li>
+        <li>
+            <div class="dish-image">
+                <img src="2.jpg" alt="Margherita Pizza">
+            </div>
+            <div class="dish-details">
+                <h3 class="dish-name">Margherita Pizza</h3>
+                <p class="description">Classic pizza topped with fresh mozzarella and basil.</p>
+                <span class="price">10.99 p.</span>
+            </div>
+        </li>
+        <li>
+            <div class="dish-image">
+                <img src="3.jpg" alt="Beef Burrito">
+            </div>
+            <div class="dish-details">
+                <h3 class="dish-name">Beef Burrito</h3>
+                <p class="description">Savory burrito filled with seasoned beef and vegetables.</p>
+                <span class="price">8.99 p.</span>
+            </div>
+        </li>
+        <li>
+            <div class="dish-image">
+                <img src="4.jpeg" alt="Greek Salad">
+            </div>
+            <div class="dish-details">
+                <h3 class="dish-name">Greek Salad</h3>
+                <p class="description">Refreshing salad with crisp lettuce, feta cheese, and olives.</p>
+                <span class="price">6.99 p.</span>
+            </div>
+        </li>
+        <li>
+            <div class="dish-image">
+                <img src="5.jpg" alt="Tiramisu">
+            </div>
+            <div class="dish-details">
+                <h3 class="dish-name">Tiramisu</h3>
+                <p class="description">Decadent Italian dessert made with layers of coffee-soaked ladyfingers and mascarpone cream.</p>
+<span class="price">4.99 p.</span>
+</div>
+</li>
+<li>
+<div class="dish-image">
+<img src="6.jpg" alt="Steak with Roasted Vegetables">
+</div>
+<div class="dish-details">
+<h3 class="dish-name">Steak with Roasted Vegetables</h3>
+<p class="description">Juicy steak served with a side of roasted vegetables.</p>
+<span class="price">16.99 p.</span>
+</div>
+</li>
+<li>
+<div class="dish-image">
+<img src="7.jpg" alt="Spaghetti Carbonara">
+</div>
+<div class="dish-details">
+<h3 class="dish-name">Spaghetti Carbonara</h3>
+<p class="description">Classic Italian pasta dish with bacon, eggs, and Parmesan cheese.</p>
+<span class="price">11.99 p.</span>
+</div>
+</li>
+<li>
+<div class="dish-image">
+<img src="8.jpg" alt="Fish Tacos">
+</div>
+<div class="dish-details">
+<h3 class="dish-name">Fish Tacos</h3>
+<p class="description">Delicious tacos filled with crispy fish, cabbage, and a tangy sauce.</p>
+<span class="price">9.99 p.</span>
+</div>
+</li>
+<li>
+<div class="dish-image">
+<img src="9.jpg" alt="Caesar Salad">
+</div>
+<div class="dish-details">
+<h3 class="dish-name">Caesar Salad</h3>
+<p class="description">Classic salad with romaine lettuce, Parmesan cheese, and Caesar dressing.</p>
+<span class="price">7.99 p.</span>
+</div>
+</li>
+<li>
+<div class="dish-image">
+<img src="10.jpg.crdownload" alt="Cheesecake">
+</div>
+<div class="dish-details">
+<h3 class="dish-name">Cheesecake</h3>
+<p class="description">Creamy and indulgent cheesecake with a graham cracker crust.</p>
+<span class="price">5.99 p.</span>
+</div>
+</li>
+</ul>
+</section>
+<script src='app.js'></script>
+<script>
+   
+    fetch('menu.xml')
+        .then(response => response.text())
+        .then(data => {
+          
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(data, 'text/xml');
+            const menuItems = xmlDoc.getElementsByTagName('dish');
+
+           
+            for (let i = 0; i < menuItems.length; i++) {
+                const dish = menuItems[i];
+                const name = dish.getElementsByTagName('name')[0].textContent;
+                const description = dish.getElementsByTagName('description')[0].textContent;
+                const price = dish.getElementsByTagName('price')[0].textContent;
+                const image = dish.getElementsByTagName('image')[0].textContent;
+
+             
+                const li = document.createElement('li');
+                const dishImage = document.createElement('div');
+                dishImage.className = 'dish-image';
+                const img = document.createElement('img');
+                img.src = image;
+                img.alt = name;
+                dishImage.appendChild(img);
+                const dishDetails = document.createElement('div');
+                dishDetails.className = 'dish-details';
+                const dishName = document.createElement('h3');
+                dishName.className = 'dish-name';
+                dishName.textContent = name;
+                const dishDescription = document.createElement('p');
+                dishDescription.className = 'description';
+                dishDescription.textContent = description;
+                const dishPrice = document.createElement('span');
+                dishPrice.className = 'price';
+                dishPrice.textContent = price + ' p.';
+                dishDetails.appendChild(dishName);
+                dishDetails.appendChild(dishDescription);
+                dishDetails.appendChild(dishPrice);
+                li.appendChild(dishImage);
+                li.appendChild(dishDetails);
+
+              
+                const menuList = document.getElementById('menu-list');
+                menuList.appendChild(li);
+            }
+        })
+        .catch(error => {
+            console.log('Error:', error);
+        });
+</script>
+</body>
+</html>
