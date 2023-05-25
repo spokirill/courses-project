@@ -3,6 +3,75 @@
 <head>
   <title>Restaurant </title>
   <link rel="stylesheet" type="text/css" href="sty.css">
+  <style>
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        
+    }
+    h2 {
+        color: black; 
+        text-align: center;
+    }
+    .form-wrapper {
+        width: 600px; /* Измените значение max-width на желаемую ширину */
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f9f9f9;
+    }
+   
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="time"],
+    input[type="number"],
+    textarea {
+        width: 90%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+    
+    button[type="submit"] {
+        padding: 10px 20px;
+        background-color: #ff0000;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    #success-message {
+    display: none;
+    background-color: #32CD32;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+  } #success-message {
+    display: none;
+    background-color: #32CD32;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+  }
+</style>
 </head>
 <body>
   <div class='header'>
@@ -40,74 +109,71 @@
     </div>
 </div>
 
-<form action="/submit-reservation" method="post">
-    <h2>Бронирование</h2>
-    
+           
  
-    <div class="form-group">
-      <label for="name">Имя:</label>
-      <input type="text" id="name" name="name" required>
-    </div>
-    
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-    
-    <div class="form-group">
-      <label for="phone">Телефон:</label>
-      <input type="tel" id="phone" name="phone" required>
-    </div>
-    
-   
-    <div class="form-group">
-      <label for="date">Дата:</label>
-      <input type="date" id="date" name="date" required>
-    </div>
-    
-    <div class="form-group">
-      <label for="time">Время:</label>
-      <input type="time" id="time" name="time" required>
-    </div>
-    
-   
-    <div class="form-group">
-      <label for="guests">Количество гостей:</label>
-      <input type="number" id="guests" name="guests" min="1" required>
-    </div>
-    
-   
-    <div class="form-group">
-      <label for="comment">Комментарий:</label>
-      <textarea id="comment" name="comment"></textarea>
-    </div>
-    
-
-    <button type="submit">Отправить бронь</button>
-  </form>
-  <div id="success-message" class="success-message" style="display: none;">
-    Бронь прошла успешно!Спасибо,что выбрали наш ресторан!
+<div class="form-container">
+  <div class="form-wrapper">
+    <form action="/submit-reservation" method="post" onsubmit="showSuccessMessage()"> 
+          <h2>Бронирование</h2>
+          
+          <div class="form-group">
+              <label for="name">Имя:</label>
+              <input type="text" id="name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+              <label for="phone">Телефон:</label>
+              <input type="tel" id="phone" name="phone" required>
+          </div>
+          
+          <div class="form-group">
+              <label for="date">Дата:</label>
+              <input type="date" id="date" name="date" required>
+          </div>
+          
+          <div class="form-group">
+              <label for="time">Время:</label>
+              <input type="time" id="time" name="time" required>
+          </div>
+          
+          <div class="form-group">
+              <label for="guests">Количество гостей:</label>
+              <input type="number" id="guests" name="guests" min="1" required>
+          </div>
+          <div id="success-message" style="display: none;">Бронирование успешно выполнено!</div> 
+          <div class="form-group">
+              <label for="comment">Комментарий:</label>
+              <textarea id="comment" name="comment"></textarea>
+          </div>
+          
+          <button type="submit">Отправить бронь</button>
+      </form>
   </div>
+</div>
+
   <div class='footer'>
     <p> "Наслаждайтесь кулинарным искусством в ресторане "BKYCHOB" - Где гастрономия встречается с блаженством!"</p>
  </div>
-  <script>
-  
-    document.addEventListener("DOMContentLoaded", function() {
-      var form = document.getElementById("reservation-form");
-      var successMessage = document.getElementById("success-message");
-      
-      form.addEventListener("submit", function(event) {
-        event.preventDefault(); 
-        
+ <div id="success-message" style="display: none;">Бронирование успешно выполнено!</div>
 
-        
-       
-        successMessage.style.display = "block";
-     
-        form.reset();
-      });
-    });
-  </script>
+ <script>
+  function showSuccessMessage() {
+    event.preventDefault(); // Отменяем обычное поведение отправки формы
+    
+    // Отображение сообщения об успешной брони
+    var successMessage = document.getElementById('success-message');
+    successMessage.style.display = 'block';
+  
+  setTimeout(function() {
+      successMessage.style.display = 'none';
+    }, 3500); 
+  }
+</script>
+<script src='app.js'></script>
 </body>
 </html>
